@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculatorApi", "LoanCalculatorApi\LoanCalculatorApi.csproj", "{71905AAE-0D4D-4528-B5E8-16B07839A3AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit", "Tests.Unit\Tests.Unit.csproj", "{99A4BA15-F689-42BB-8329-8EBBAE59EC58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71905AAE-0D4D-4528-B5E8-16B07839A3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71905AAE-0D4D-4528-B5E8-16B07839A3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71905AAE-0D4D-4528-B5E8-16B07839A3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71905AAE-0D4D-4528-B5E8-16B07839A3AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A4BA15-F689-42BB-8329-8EBBAE59EC58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A4BA15-F689-42BB-8329-8EBBAE59EC58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A4BA15-F689-42BB-8329-8EBBAE59EC58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A4BA15-F689-42BB-8329-8EBBAE59EC58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
