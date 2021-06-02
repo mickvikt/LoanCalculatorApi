@@ -13,6 +13,7 @@
 
             return new PaymentOverview
             {
+                YearlyCostAsPercentageOfLoanAmount = monthlyAmount * 12 / loanTerms.LoanAmount * 100,
                 MonthlyAmount = Math.Round(monthlyAmount, 2),
                 TotalInterestPaid = Math.Round(totalInterestPaid, 2),
                 TotalAmountPaidInAdministrativeFees = Math.Min(
