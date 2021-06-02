@@ -1,7 +1,6 @@
-﻿namespace LoanCalculatorApi
+﻿namespace LoanCalculatorApi.Domain
 {
     using System.ComponentModel;
-    using FluentValidation;
 
     public class LoanTerms
     {

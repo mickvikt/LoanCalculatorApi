@@ -1,5 +1,6 @@
 using FluentAssertions;
 using LoanCalculatorApi;
+using LoanCalculatorApi.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests.Unit

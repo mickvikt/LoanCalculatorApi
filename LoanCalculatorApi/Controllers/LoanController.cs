@@ -1,5 +1,6 @@
 ﻿namespace LoanCalculatorApi.Controllers
 {
+    using LoanCalculatorApi.Domain;
     using Microsoft.AspNetCore.Mvc;
 
     [ApiController]

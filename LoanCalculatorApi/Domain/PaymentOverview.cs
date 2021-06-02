@@ -1,4 +1,4 @@
-﻿namespace LoanCalculatorApi
+﻿namespace LoanCalculatorApi.Domain
 {
     public class PaymentOverview
     {
