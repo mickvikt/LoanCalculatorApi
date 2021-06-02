@@ -1,7 +1,6 @@
-﻿using System.ComponentModel;
-
-namespace LoanCalculatorApi
+﻿namespace LoanCalculatorApi
 {
+    using System.ComponentModel;
     using FluentValidation;
 
     public class LoanTerms
@@ -16,15 +15,5 @@ namespace LoanCalculatorApi
         public double AdministrativeFeePercentage { get; set; } = 1;
 
         public int MinimumAdministrativeFee { get; set; } = 10_000;
-    }
-
-    public class LoanTermsValidator : AbstractValidator<LoanTerms>
-    {
-        public LoanTermsValidator()
-        {
-            this.RuleFor(terms => terms.LoanAmount).GreaterThan(0);
-            this.RuleFor(terms => terms.YearlyInterestPercentage).GreaterThan(0);
-            this.RuleFor(terms => terms.YearlyInterestPercentage).GreaterThan(0);
-        }
     }
 }
