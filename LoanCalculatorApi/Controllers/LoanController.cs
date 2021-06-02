@@ -1,5 +1,6 @@
 ﻿namespace LoanCalculatorApi.Controllers
 {
+    using System.ComponentModel;
     using LoanCalculatorApi.Domain;
     using Microsoft.AspNetCore.Mvc;
 
@@ -15,11 +16,29 @@
         }
 
         [HttpPost]
-        public IActionResult Post(LoanTerms loanTerms)
+        public IActionResult Post(
+            [DefaultValue(25_000)] int loanAmount,
+            [DefaultValue(5.0)]double yearlyInterestPercentage,
+            [DefaultValue(12)] int loanDurationInMOnths,
+            [DefaultValue(1)]double administrativeFeePercentage,
+            [DefaultValue(5000)]int minimumAdministrativeFee)
         {
-            if (!this.ModelState.IsValid)
+            var loanTerms = new LoanTerms
             {
-                return this.BadRequest("Kazkokia suduva!");
+                LoanAmount = loanAmount,
+                YearlyInterestPercentage = yearlyInterestPercentage,
+                LoanDurationInMonths = loanDurationInMOnths,
+                AdministrativeFeePercentage = 1,
+                MinimumAdministrativeFee = 1000,
+            };
+
+            var loanTermsValidator = new LoanTermsValidator();
+            var validationResult = loanTermsValidator.Validate(loanTerms);
+
+            if (!validationResult.IsValid)
+            {
+                var errorsAsString = string.Join(";\n", validationResult.Errors);
+                return this.BadRequest(errorsAsString);
             }
 
             return this.Ok(this.loanCalculator.GetLoanPaymentOverview(loanTerms));

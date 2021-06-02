@@ -1,9 +1,5 @@
 namespace LoanCalculatorApi
 {
-    using System;
-    using System.IO;
-    using System.Reflection;
-    using FluentValidation.AspNetCore;
     using LoanCalculatorApi.Domain;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -24,20 +20,11 @@ namespace LoanCalculatorApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers()
-                .AddFluentValidation(config =>
-                {
-                    config.RegisterValidatorsFromAssemblyContaining<Startup>();
-                    config.DisableDataAnnotationsValidation = true;
-                });
+            services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LoanCalculatorApi", Version = "v1" });
-
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
 
             services.AddSingleton<ILoanCalculator, LoanCalculator>();
