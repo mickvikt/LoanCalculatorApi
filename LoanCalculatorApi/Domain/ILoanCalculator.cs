@@ -2,6 +2,6 @@
 {
     public interface ILoanCalculator
     {
-        PaymentOverview GetLoanPaymentOverview(LoanTerms loanTerms);
+        PaymentOverviewResult GetLoanPaymentOverview(LoanTerms loanTerms);
     }
 }

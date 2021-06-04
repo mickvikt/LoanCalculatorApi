@@ -28,6 +28,7 @@ namespace LoanCalculatorApi
             });
 
             services.AddSingleton<ILoanCalculator, LoanCalculator>();
+            services.AddSingleton<ILoanTermsValidator, LoanTermsValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

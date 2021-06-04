@@ -1,10 +1,7 @@
 ﻿namespace LoanCalculatorApi.Domain
 {
-    using System.ComponentModel;
-
     public class LoanTerms
     {
-        [DefaultValue(25_000)]
         public int LoanAmount { get; set; }
 
         public double YearlyInterestPercentage { get; set; }
