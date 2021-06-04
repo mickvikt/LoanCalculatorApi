@@ -16,7 +16,7 @@ namespace Tests.Unit
         }
         
         [TestMethod]
-        public void GivenValidLoanAmountYearlyInterestRateAndLoanDurationInMonthsShouldPopulatePaymentOverviewCorrectly()
+        public void GivenValidLoanTermsShouldPopulatePaymentOverviewCorrectly()
         {
             // Arrange
             var loanTerms = new LoanTerms
@@ -27,16 +27,34 @@ namespace Tests.Unit
                 AdministrativeFeePercentage = 1,
                 MinimumAdministrativeFee = 10_000,
             };
-            
-            var expectedResult = new PaymentOverview
-            {
-                MonthlyAmount = 5_303.28,
-                TotalInterestPaid = 136_393.09,
-                TotalAmountPaidInAdministrativeFees = 5_000,
-            };
+
+            var expectedResult = PaymentOverviewResult.CreateSuccessResult(
+                new PaymentOverview
+                {
+                    YearlyCostAsPercentageOfLoanAmount = 12.73,
+                    MonthlyAmount = 5_303.28,
+                    TotalInterestPaid = 136_393.09,
+                    TotalAmountPaidInAdministrativeFees = 5_000,
+                }
+            );
             
             // Act
             var actualResult = this.loanCalculator.GetLoanPaymentOverview(loanTerms);
+            
+            // Assert
+            actualResult
+                .Should()
+                .BeEquivalentTo(expectedResult);
+        }
+
+        [TestMethod]
+        public void GivenANullValueForLoanTermsShouldProduceAFailureResult()
+        {
+            // Arrange
+            var expectedResult = PaymentOverviewResult.CreateFailureResult("Loan terms parameter is not given!");
+            
+            // Act
+            var actualResult = this.loanCalculator.GetLoanPaymentOverview(null);
             
             // Assert
             actualResult
